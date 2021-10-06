@@ -1,0 +1,48 @@
+# Book settings
+title                       : "Simulations for Brownian Motion"
+author                      : "Trifce Sandev, Kiril Zelenkovski"
+copyright                   : "2021"  
+logo                        : images/logo.png  
+exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+
+execute:
+  execute_notebooks: 'off'
+
+only_build_toc_files: true 
+
+html:
+  favicon                   : images/favicon.ico
+  use_edit_page_button      : true  
+  use_repository_button     : true  
+  use_issues_button         : true  
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  
+  extra_footer              : "Macedonian Academy of Sciences and Arts - MANU, Skopje, Macedonia"  
+  home_page_in_navbar       : true  
+  baseurl                   : ""  
+  comments:
+    hypothesis              : true
+
+
+launch_buttons:
+  notebook_interface        : "classic"  
+  binderhub_url             : "https://mybinder.org"
+  thebe                     : false  
+  colab_url                 : "https://colab.research.google.com/drive/1oYtd0SE9Jwnm9foC6MJEdXdc2b07-7be?usp=sharing"
+
+repository:
+  url                       : https://github.com/zelenelez/brownian_motion_simulations
+  branch                    : main  
+
+parse:
+  myst_enable_extensions:
+    - html_image
+    - amsmath
+    - colon_fence
+    - deflist 
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify 
+    - replacements
+    - smartquotes
+    - substitution

@@ -1,0 +1,15 @@
+- file: index
+  numbered: false
+  
+- part: "Simulations"
+  chapters:
+  - file: 01/Moment_no_drift
+    title: "Brownian motion - without drift" 
+  - file: 01/Moment_drift
+    title: "Brownian motion - with drift" 
+   
+
+- part: "Resources"
+  chapters:
+  - url: https://github.com/zelenelez/brownian_motion_simulations
+    title: "GitHub repository" 
