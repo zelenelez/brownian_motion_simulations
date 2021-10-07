@@ -13,7 +13,6 @@
   - file: 02/2_d-comb
     title: "Brownian motion - 2D backbone" 
   
-  
 - part: "Resources"
   chapters:
   - url: https://github.com/zelenelez/brownian_motion_simulations
