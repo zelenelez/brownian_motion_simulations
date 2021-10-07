@@ -2,8 +2,8 @@
 
 Tasks | *Brownian motion process*
 <br>
-<br> **Mentor**: PhD. Trifce Sandev
-<br> **Student**: Kiril Zelenkovski 
+<br> **Project cordinator**: PhD. Trifce Sandev
+<br> **Students**: Viktor Domazetoski, Pece Trajanovski, Kiril Zelenkovski
 
 This Jupyter-book is a collection of some notebooks regarding Brownian Motion. 
 In this work we simulate Brownian motion by solving the Langevin equation numerically. 
