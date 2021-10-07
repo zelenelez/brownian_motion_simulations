@@ -1,6 +1,6 @@
 # Book settings
 title                       : "Simulations for Brownian Motion"
-author                      : "Trifce Sandev, Kiril Zelenkovski"
+author                      : "Trifce Sandev, Viktor Domazetoski, Pece Trajanovski, Kiril Zelenkovski"
 copyright                   : "2021"  
 logo                        : images/logo.png  
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -16,7 +16,7 @@ html:
   use_repository_button     : true  
   use_issues_button         : true  
   extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  
-  extra_footer              : "Macedonian Academy of Sciences and Arts - MANU, Skopje, Macedonia"  
+  extra_footer              : <a href="http://csit.manu.edu.mk/">Macedonian Academy of Sciences and Arts - MANU, Skopje, Macedonia</a>   
   home_page_in_navbar       : true  
   baseurl                   : ""  
   comments:
