@@ -1,14 +1,19 @@
 - file: index
   numbered: false
   
-- part: "Simulations"
+- part: "Simple diffusion"
   chapters:
   - file: 01/Moment_no_drift
     title: "Brownian motion - without drift" 
   - file: 01/Moment_drift
     title: "Brownian motion - with drift" 
    
-
+- part: "Diffusion in 2D comb"
+  chapters:
+  - file: 02/2_d-comb
+    title: "Brownian motion - 2D backbone" 
+  
+  
 - part: "Resources"
   chapters:
   - url: https://github.com/zelenelez/brownian_motion_simulations
