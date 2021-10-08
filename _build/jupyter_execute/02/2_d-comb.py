@@ -52,6 +52,7 @@ from matplotlib.ticker import (MultipleLocator, AutoMinorLocator)
 import plotly.graph_objs as go
 import random 
 warnings.filterwarnings("ignore")
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset, inset_axes, zoomed_inset_axes
 
 %matplotlib inline
 
@@ -61,10 +62,10 @@ y = np.arange(-15,15,0.01)
 
 # Calculate PDF for t=1, t=2 $ t=10
 x_0 = 0
-sig = [1, 0.5, 0.1]
-f1 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[0])**2) / sig[0]
-f2 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[1])**2) / sig[1]
-f3 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[2])**2) / sig[2]
+sig = [1, 0.5, 0.01]
+f1 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[0]**2)) / sig[0]
+f2 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[1]**2)) / sig[1]
+f3 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig[2]**2)) / sig[2]
 
 # t=1
 plt.plot(y, f1, linewidth=0.8, alpha=0.6, label=r"$\sigma=${}".format(sig[0]), color="blue")
@@ -80,6 +81,9 @@ plt.plot(y, f3, linewidth=0.8, alpha=0.6, label=r"$\sigma=${}".format(sig[2]), c
 plt.axvline(x=0, linewidth=0.8, alpha=1, color="black")
 # plt.axvline(x=V, linewidth=0.8, alpha=0.5, color="green", linestyle='--', label=r'$V$')
 
+plt.title(
+    r"Dirac $\delta$-function: $A(y) = \frac{1}{\sqrt{2\pi}\sigma}\exp(-y^2/[2\sigma^2])$; $\sigma\to 0$",
+    fontsize=9, pad=9)
 
 # Add legend if comparing values
 plt.legend(bbox_to_anchor=(1.05, 1.0),
@@ -90,18 +94,43 @@ plt.legend(bbox_to_anchor=(1.05, 1.0),
 
 plt.ylabel(r"A(y)")
 plt.xlabel(r"$y$")
-plt.title(
-    r"Dirac $\delta$-function: $A(y) = \frac{1}{\sqrt{2\pi}\sigma}\exp(-y^2/[2\sigma^2])$; $\sigma\to 0$",
-    fontsize=9, pad=9)
-plt.tight_layout(pad=1.9)
+
+axins = inset_axes(ax,
+                  width="30%", # width = 30% of parent_bbox
+                  height=1., # height : 1 inch
+                  loc=1)
+
+# t=1
+axins.plot(y, f1, linewidth=0.8, alpha=0.6, label=r"$\sigma=${}".format(sig[0]), color="blue")
+
+# t=2
+axins.plot(y, f2, linewidth=0.8, alpha=0.6, label=r"$\sigma=${}".format(sig[1]), color="orange")
+
+# t=10
+axins.plot(y, f3, linewidth=0.8, alpha=0.6, label=r"$\sigma=${}".format(sig[2]), color="green")
+
+
+# Plot lines for reference 
+axins.axvline(x=0, linewidth=0.8, alpha=1, color="black")
+
+# x1, x2, y1, y2 = -1.5, -0.9, -2.5, -1.9
+axins.set_xlim(-2.5, 2.5)
+axins.set_ylim(0, 1.5)
+
+plt.xticks(fontsize=5)
+plt.yticks(fontsize=5)
+
+mark_inset(ax, axins, loc1=2, loc2=4, fc="none", ec="0.5", alpha=0.2, linewidth=0.5)
+
+plt.tight_layout(pad=2.9)
 ax.tick_params(direction="in", which='minor', length=1.5, top=True, right=True)
 plt.show()
 
 Running a simple check for the value at zero: 
 
 def A(y=0, sig=0.01, pi=np.pi):
-  f1 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig**2)) / sig
-  return f1
+    f1 = 1/(2*np.pi)**0.5 * np.exp(-(y)**2/(2*sig**2)) / sig
+    return f1
 
 print("A(y)=", A())
 
